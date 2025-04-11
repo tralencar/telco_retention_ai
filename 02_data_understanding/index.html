@@ -1,0 +1,1263 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="TelcoRetentionAI for Telco Customer Churn">
+      
+      
+        <meta name="author" content="tralencar">
+      
+      
+        <link rel="canonical" href="https://tralencar.github.io/telco_retention_ai/02_data_understanding/">
+      
+      
+        <link rel="prev" href="../01_business_understanding/">
+      
+      
+        <link rel="next" href="../03_data_preparation/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>📊 Data Understanding - TelcoRetentionAI – Powering loyalty with AI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-data-understanding" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="TelcoRetentionAI – Powering loyalty with AI" class="md-header__button md-logo" aria-label="TelcoRetentionAI – Powering loyalty with AI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TelcoRetentionAI – Powering loyalty with AI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📊 Data Understanding
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tralencar/telco_retention_ai" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    telco_retention_ai
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TelcoRetentionAI – Powering loyalty with AI" class="md-nav__button md-logo" aria-label="TelcoRetentionAI – Powering loyalty with AI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TelcoRetentionAI – Powering loyalty with AI
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tralencar/telco_retention_ai" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    telco_retention_ai
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🏠 Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 Project Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📂 Project Structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    📦 Methodology (CRISP-DM)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            📦 Methodology (CRISP-DM)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_business_understanding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧠 Business Understanding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    📊 Data Understanding
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    📊 Data Understanding
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-general-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 General Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-check-for-missing-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Check for missing values
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-descriptive-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Descriptive statistics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-target-variable-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Target variable distribution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-churn-distribution-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Churn distribution plot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-correlation-heatmap-numerical" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Correlation heatmap (numerical)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-churn-by-contract-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Churn by Contract Type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-distribution-of-numerical-variables-segmented-by-churn" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 Distribution of numerical variables segmented by Churn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-boxplots-para-detectar-outliers-por-churn" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 Boxplots para detectar outliers por Churn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-bar-chart-for-categorical-variables-vs-churn" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.10 Bar chart for categorical variables vs Churn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-cross-tabulation-churn-percentage-by-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.11 Cross-tabulation + churn percentage by category
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-churn-analysis-by-customer-tenure" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.12 Churn analysis by customer tenure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#213-pairplot-multivariate-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.13 Pairplot (multivariate exploration)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_data_preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Data Preparation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🤖 Modeling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📏 Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    📦 Results
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📦 Results
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_project_objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🎯 Project Objectives Results
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_project_goals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📌 Project Goals Results
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_business_recommendations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💡 Business Recommendations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_conclusions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✅ Project Conclusions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🤝 Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="2-data-understanding">2) Data Understanding</h1>
+<ul>
+<li><strong>Data Source:</strong> IBM’s public dataset – <em>Telco Customer Churn</em> (https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data).</li>
+<li><strong>Data Structure:</strong> Each row represents a customer; columns include gender, contract type, internet service, total charges, and more.</li>
+<li><strong>Target Variable:</strong> <code>Churn</code> (binary: "Yes" or "No").</li>
+</ul>
+<hr />
+<h2 id="21-general-overview">2.1 General Overview</h2>
+<p><img alt="Data Overview" src="../assets/images/02_data_understanding/2.1.png" /></p>
+<p>Key Insights from the Data Overview</p>
+<ol>
+<li>
+<p>Dataset Dimensions</p>
+</li>
+<li>
+<p>The dataset contains 7,043 rows (customers) and 21 columns (features).</p>
+</li>
+</ol>
+<p>Insight: This is a medium-sized dataset, suitable for supervised learning models without the need for heavy big data tools.</p>
+<hr />
+<h2 id="22-check-for-missing-values">2.2 Check for missing values</h2>
+<p><img alt="Check for missing values" src="../assets/images/02_data_understanding/2.2.png" /></p>
+<hr />
+<h2 id="23-descriptive-statistics">2.3 Descriptive statistics</h2>
+<p><img alt="Descriptive statistics" src="../assets/images/02_data_understanding/2.3.png" /></p>
+<hr />
+<h2 id="24-target-variable-distribution">2.4 Target variable distribution</h2>
+<p><img alt="Target variable distribution" src="../assets/images/02_data_understanding/2.4.png" /></p>
+<hr />
+<h2 id="25-churn-distribution-plot">2.5 Churn distribution plot</h2>
+<p><img alt="Churn distribution plot" src="../assets/images/02_data_understanding/2.5.png" /></p>
+<p>Key Insights from the Churn Distribution Plot</p>
+<ol>
+<li>Class imbalance is present</li>
+</ol>
+<p>The bar chart clearly shows a strong imbalance between the two classes:</p>
+<ul>
+<li>The number of customers who did not churn (No) is significantly higher than those who did churn (Yes).</li>
+<li>Visually, churned customers represent roughly 25–27% of the dataset.</li>
+</ul>
+<p>Insight:
+This is a class imbalance problem, and ignoring it during modeling could lead to biased models that predict mostly "No" and still achieve high accuracy.</p>
+<hr />
+<h2 id="26-correlation-heatmap-numerical">2.6 Correlation heatmap (numerical)</h2>
+<p><img alt="Correlation heatmap (numerical)" src="../assets/images/02_data_understanding/2.6.png" /></p>
+<p>Key Insights from the Correlation Heatmap</p>
+<ol>
+<li>High correlation between TotalCharges and tenure</li>
+</ol>
+<p>Correlation = 0.83</p>
+<p>This is a strong positive correlation.</p>
+<p>Insight:</p>
+<ul>
+<li>The longer a customer stays (tenure), the higher their total charges (TotalCharges).</li>
+<li>This makes sense since TotalCharges ≈ MonthlyCharges × tenure for most cases.</li>
+</ul>
+<p>However, TotalCharges also depends on optional services, so it's not a perfect linear relation (not 1.00).</p>
+<ol>
+<li>Moderate correlation between TotalCharges and MonthlyCharges</li>
+</ol>
+<p>Correlation = 0.65</p>
+<p>Insight:</p>
+<ul>
+<li>Customers with higher monthly charges tend to accumulate higher total charges.</li>
+<li>
+<p>But this is not always the case, especially for short-tenure customers or those who churn early.</p>
+</li>
+<li>
+<p>Weak correlation between tenure and MonthlyCharges</p>
+</li>
+</ul>
+<p>Correlation = 0.25</p>
+<p>Insight:</p>
+<ul>
+<li>There is little relationship between how long a customer has been with the company and their monthly plan cost.</li>
+<li>This is useful: some long-term customers may still be on cheaper plans, and vice versa</li>
+</ul>
+<hr />
+<h2 id="27-churn-by-contract-type">2.7 Churn by Contract Type</h2>
+<p><img alt="Churn by Contract Type" src="../assets/images/02_data_understanding/2.7.png" /></p>
+<p>Key Insights from Churn by Contract Type</p>
+<ol>
+<li>Churn is highest among Month-to-month contracts</li>
+</ol>
+<p>Customers with Month-to-month contracts have a much higher churn rate than those with long-term contracts.</p>
+<p>The orange (Churn = Yes) portion is almost equal to the green (No) portion in that group.</p>
+<p>Insight:</p>
+<ul>
+<li>Customers who are not locked into a contract are far more likely to leave.</li>
+<li>
+<p>This supports the business assumption that flexibility increases risk of churn.</p>
+</li>
+<li>
+<p>Churn is lowest among Two-year contracts</p>
+</li>
+</ul>
+<p>Very few customers with a Two-year contract churned.</p>
+<p>The green bar (retained customers) dominates.</p>
+<p>Insight:</p>
+<ul>
+<li>
+<p>Longer contract commitments are strongly associated with customer retention.</p>
+</li>
+<li>
+<p>One-year contracts show moderate churn</p>
+</li>
+</ul>
+<p>Churn exists but is much lower than for Month-to-month, and higher than for Two-year.</p>
+<p>Insight:</p>
+<ul>
+<li>This group may represent a transitional customer profile — not as loyal as long-term clients, but more stable than those with no commitment.</li>
+</ul>
+<hr />
+<h2 id="28-distribution-of-numerical-variables-segmented-by-churn">2.8 Distribution of numerical variables segmented by Churn</h2>
+<p><img alt="Distribution of numerical variables segmented by Churn" src="../assets/images/02_data_understanding/2.8.png" /></p>
+<p>Insights from Numerical Variable Distributions by Churn</p>
+<ol>
+<li>tenure vs Churn</li>
+</ol>
+<p>Most churned customers (Churn = Yes) have low tenure (especially ≤ 10 months).</p>
+<p>Long-tenure customers (e.g., ≥ 50 months) have very low churn.</p>
+<p>Insight:</p>
+<ul>
+<li>
+<p>Early churn is a critical risk. New customers are much more likely to leave within the first year.</p>
+</li>
+<li>
+<p>MonthlyCharges vs Churn</p>
+</li>
+</ul>
+<p>Customers with higher monthly charges (≥ $70) churn more frequently.</p>
+<p>Lower charges (~$20) are dominated by retained customers.</p>
+<p>Insight:</p>
+<ul>
+<li>
+<p>High-value plans may increase churn risk if perceived value isn’t delivered.</p>
+</li>
+<li>
+<p>TotalCharges vs Churn</p>
+</li>
+</ul>
+<p>Churned customers have lower TotalCharges, peaking below $2,000.</p>
+<p>Customers with high TotalCharges (≥ $5,000) show low churn.</p>
+<p>Insight:</p>
+<ul>
+<li>Churn tends to happen before significant revenue is accumulated — often early in the lifecycle.</li>
+</ul>
+<hr />
+<h2 id="29-boxplots-para-detectar-outliers-por-churn">2.9 Boxplots para detectar outliers por Churn</h2>
+<p><img alt="Boxplots para detectar outliers por Churn" src="../assets/images/02_data_understanding/2.9.png" /></p>
+<p>Key Insights from Boxplots: Numerical Features vs Churn</p>
+<p><strong>A) tenure vs Churn</strong></p>
+<p>Customers who churned (Yes) have a significantly lower median tenure than those who stayed.</p>
+<p>The churn group has a tight IQR concentrated at low tenure values, with fewer long-tenure outliers.</p>
+<p>Insight:</p>
+<ul>
+<li>Most churn happens early. Long-standing customers are less likely to leave.</li>
+</ul>
+<p><strong>B) MonthlyCharges vs Churn</strong></p>
+<p>The median MonthlyCharges is higher for churned customers.</p>
+<p>The churn group has a tighter IQR skewed toward higher charges, indicating less price tolerance.</p>
+<p>Insight:</p>
+<ul>
+<li>Customers paying more are more sensitive and more likely to churn, possibly due to unmet expectations.</li>
+</ul>
+<p><strong>C) TotalCharges vs Churn</strong></p>
+<p>Churned customers have much lower total charges overall, with many low outliers.</p>
+<p>The retained customers (No) have a wider and higher IQR and more extreme high values.</p>
+<p>Insight:</p>
+<ul>
+<li>Customers typically churn before becoming high-revenue clients.</li>
+</ul>
+<hr />
+<h2 id="210-bar-chart-for-categorical-variables-vs-churn">2.10 Bar chart for categorical variables vs Churn</h2>
+<p><img alt="Bar chart for categorical variables vs Churn" src="../assets/images/02_data_understanding/2.10.png" /></p>
+<p>Insights on Bar chart for categorical variables vs Churn:</p>
+<p>Contract Type is Crucial</p>
+<ul>
+<li>Month-to-month contracts have a much higher churn rate compared to One year and Two year contracts.</li>
+<li>Longer-term contracts help in customer retention.</li>
+</ul>
+<p>Internet Service</p>
+<ul>
+<li>Customers using fiber optic internet show higher churn than those using DSL or having no internet service.</li>
+</ul>
+<p>OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport</p>
+<ul>
+<li>Customers without these add-on services are more likely to churn.</li>
+<li>Having these services appears to reduce churn risk, possibly due to increased engagement or satisfaction.</li>
+</ul>
+<p>Streaming Services</p>
+<ul>
+<li>Customers with StreamingTV or StreamingMovies show slightly higher churn, but the impact is less pronounced than technical services like security or backup.</li>
+</ul>
+<p>Senior Citizens</p>
+<ul>
+<li>Although they represent a smaller group, senior citizens tend to churn more frequently than younger users.</li>
+</ul>
+<p>Dependents and Partners</p>
+<ul>
+<li>Customers without dependents or partners tend to churn more, suggesting that households with families may be more stable subscribers.</li>
+</ul>
+<p>Phone Service and Multiple Lines</p>
+<ul>
+<li>No major difference in churn between those with or without PhoneService.</li>
+<li>Having multiple lines does not show a strong correlation with churn.</li>
+</ul>
+<p>Paperless Billing</p>
+<ul>
+<li>Customers using paperless billing have a higher churn rate, possibly linked to more tech-savvy, deal-hunting behavior.</li>
+</ul>
+<p>Payment Method</p>
+<ul>
+<li>Electronic check users have a notably higher churn rate than those using automatic payments (like credit cards or bank transfers).</li>
+<li>Suggests that automatic payment methods help retain customers.</li>
+</ul>
+<p>Gender</p>
+<ul>
+<li>No significant difference in churn between males and females – gender is not a key driver of churn.</li>
+</ul>
+<hr />
+<h2 id="211-cross-tabulation-churn-percentage-by-category">2.11 Cross-tabulation + churn percentage by category</h2>
+<p><img alt="Cross-tabulation + churn percentage by category" src="../assets/images/02_data_understanding/2.11.png" /></p>
+<p>Insights on Cross-tabulation + churn percentage by category</p>
+<p>Contract Type:</p>
+<ul>
+<li>Month-to-month contracts have by far the highest churn rate, over 40%.</li>
+<li>One year and especially Two year contracts show much lower churn, confirming the loyalty associated with longer commitments.</li>
+</ul>
+<p>Internet Service:</p>
+<ul>
+<li>Customers using Fiber optic internet have the highest churn rate among all internet service types.</li>
+<li>Customers with no internet service are much less likely to churn.</li>
+</ul>
+<p>Online Services (OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport):</p>
+<ul>
+<li>Customers who lack these services have substantially higher churn rates.</li>
+<li>Those who use these features are more loyal, suggesting these services contribute to customer retention.</li>
+</ul>
+<p>Paperless Billing:</p>
+<ul>
+<li>Customers with Paperless Billing enabled show a higher churn rate than those who don’t use it. This could be linked to tech-savviness or reduced personal connection.</li>
+</ul>
+<p>Senior Citizens:</p>
+<ul>
+<li>Senior citizens show a higher churn rate than younger customers.</li>
+</ul>
+<p>Dependents &amp; Partner:</p>
+<ul>
+<li>Customers with no dependents or no partner churn more frequently, which may indicate a single-person household is more price-sensitive or less loyal.</li>
+</ul>
+<p>Payment Method:</p>
+<ul>
+<li>Electronic check users churn much more than those who use other payment methods (like credit card or bank transfer). Possibly due to financial instability or payment flexibility.</li>
+</ul>
+<p>StreamingTV and StreamingMovies:</p>
+<ul>
+<li>Interestingly, whether or not the customer subscribes to streaming services does not greatly affect churn. The churn rate remains relatively balanced between “Yes” and “No”.</li>
+</ul>
+<p>Multiple Lines:</p>
+<ul>
+<li>Having multiple phone lines slightly correlates with higher churn, though the difference is not drastic.</li>
+</ul>
+<p>Gender:</p>
+<ul>
+<li>No significant difference in churn rate between Male and Female customers — gender is not a predictive churn feature.</li>
+</ul>
+<hr />
+<h2 id="212-churn-analysis-by-customer-tenure">2.12 Churn analysis by customer tenure</h2>
+<p><img alt="Churn analysis by customer tenure" src="../assets/images/02_data_understanding/2.12.png" /></p>
+<p>Key Insights from Churn by Tenure Group</p>
+<p><strong>A) Churn is highest in the first 12 months (0–12m)</strong></p>
+<p>The 0–12m group has the highest absolute number of churns.</p>
+<p>Nearly equal bars for Churn = Yes and No, indicating high churn rate.</p>
+<p>Insight:</p>
+<ul>
+<li>New customers are at the highest risk of churn — the first year is critical.</li>
+</ul>
+<p><strong>B) Churn decreases with customer longevity</strong></p>
+<p>Churn counts drop significantly for customers in the 48–60m and 60–72m ranges.</p>
+<p>These long-tenure groups are dominated by non-churners.</p>
+<p>Insight:</p>
+<ul>
+<li>Customers who remain longer tend to be satisfied and loyal.</li>
+</ul>
+<p><strong>C) Unusual churn spike in 24–48m group</strong></p>
+<p>A noticeable rise in churn count appears in 24–48m, despite customers being mid-tenure.</p>
+<p>Churn &gt; retention in this group.</p>
+<p>Insight:</p>
+<ul>
+<li>Mid-term customers may hit a satisfaction plateau or contract renewal point that triggers churn.</li>
+</ul>
+<hr />
+<h2 id="213-pairplot-multivariate-exploration">2.13 Pairplot (multivariate exploration)</h2>
+<p><img alt="Pairplot (multivariate exploration)" src="../assets/images/02_data_understanding/2.13.png" /></p>
+<p>Key Insights from Pairplot Analysis</p>
+<p><strong>A) Churn is highly concentrated among low-tenure customers</strong></p>
+<p>In the tenure vs other features plots, churned customers (Churn = Yes, in teal) cluster heavily at low tenure values (closer to 0).</p>
+<p>Customers who stayed (Churn = No, in pink) are more widely spread across the entire tenure range.</p>
+<p>Insight:</p>
+<ul>
+<li>Most churn occurs early in the customer lifecycle, confirming previous insights from histograms and boxplots.</li>
+</ul>
+<p><strong>B) Clear diagonal trend between tenure and TotalCharges</strong></p>
+<p>There’s a strong linear relationship between tenure and TotalCharges for both churn and non-churn groups.</p>
+<p>However, customers who churned are clustered toward the lower-left corner (short tenure, low total charges).</p>
+<p>Insight:</p>
+<ul>
+<li>Customers who churn don’t accumulate high value over time — they leave early before generating significant revenue.</li>
+</ul>
+<p><strong>C) Churn appears across all ranges of MonthlyCharges</strong></p>
+<p>Churned customers exist across all levels of monthly charges, though they’re more dense in the mid-to-high range (≈ $70–$100).</p>
+<p>Retained customers dominate the low-cost segments.</p>
+<p>Insight:</p>
+<ul>
+<li>While MonthlyCharges alone isn’t a strong separator, high-value plans still carry slightly more churn risk.</li>
+</ul>
+<p><strong>D) Distribution on diagonals (KDE plots)</strong></p>
+<p>The diagonal KDE plots show churned users with:</p>
+<p>A sharp peak at low tenure</p>
+<p>A broader and slightly higher range of MonthlyCharges</p>
+<p>A right-skewed TotalCharges distribution mostly below 2,000</p>
+<p>Insight:</p>
+<ul>
+<li>All three numerical variables have non-normal distributions, with churners clustering at the lower end of tenure and total value.</li>
+</ul>
+<hr />
+<h1 id="key-insights-from-churn-analysis-crisp-dm-data-understanding-phase">Key Insights from Churn Analysis (CRISP-DM: Data Understanding Phase)</h1>
+<h3 id="21-customer-tenure-churn-behavior">2.1. Customer Tenure &amp; Churn Behavior</h3>
+<ul>
+<li>Short-tenure customers (0–12 months) have the highest churn rate.</li>
+<li>Long-tenure customers (48+ months) rarely churn, indicating customer loyalty increases over time.</li>
+<li>The boxplot confirms that churned customers typically have much shorter tenures.</li>
+</ul>
+<h3 id="22-monthly-and-total-charges">2.2. Monthly and Total Charges</h3>
+<ul>
+<li>MonthlyCharges are slightly higher for churned customers.</li>
+<li>TotalCharges are significantly lower among churned customers, which correlates with short tenure.</li>
+<li>Histograms and KDE plots reveal a clear density difference between churned and retained customers, especially in TotalCharges.</li>
+</ul>
+<h3 id="23-tenure-groups">2.3. Tenure Groups</h3>
+<ul>
+<li>When grouping customers by tenure ranges (e.g., 0–12m, 12–24m, etc.):</li>
+<li>The 0–12m group has the largest number of churners.</li>
+<li>The 60–72m group has nearly no churners, showing strong customer retention among long-term users.</li>
+</ul>
+<h3 id="24-pairplot-correlation">2.4. Pairplot Correlation</h3>
+<ul>
+<li>The strongest linear relationship is between Tenure and TotalCharges.</li>
+<li>Churned customers are clustered toward the lower-left corner, reflecting low tenure and low total charges.</li>
+<li>This supports the hypothesis that early-stage customers are at highest churn risk.</li>
+</ul>
+<h3 id="25-categorical-variables-countplots-churn-rates">2.5. Categorical Variables (Countplots &amp; Churn Rates)</h3>
+<p>Contract Type:</p>
+<ul>
+<li>Month-to-month contracts show the highest churn (~45%).</li>
+<li>Two-year contracts show very low churn (&lt;10%).</li>
+</ul>
+<p>Internet Service:</p>
+<ul>
+<li>Fiber optic users churn more frequently.</li>
+<li>Customers with no internet service rarely churn.</li>
+</ul>
+<p>Online Services:</p>
+<ul>
+<li>Lack of OnlineSecurity, Backup, DeviceProtection, or TechSupport is strongly associated with churn.</li>
+</ul>
+<p>Billing Preferences:</p>
+<ul>
+<li>Paperless Billing users churn more often.</li>
+<li>Electronic check is the payment method with the highest churn rate.</li>
+</ul>
+<p>Demographics:</p>
+<ul>
+<li>Senior citizens, single customers (no partner), and those without dependents are more likely to churn.</li>
+<li>Gender has no significant effect on churn.</li>
+</ul>
+<hr />
+<p><a href="../">⬅ Voltar para a Página Inicial</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "toc.integrate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
