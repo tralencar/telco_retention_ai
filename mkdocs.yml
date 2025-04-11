@@ -1,0 +1,41 @@
+site_description: "TelcoRetentionAI for Telco Customer Churn"
+site_author: "tralencar"
+repo_name: "telco_retention_ai"
+repo_url: "https://github.com/tralencar/telco_retention_ai"
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+
+site_name: TelcoRetentionAI – Powering loyalty with AI
+site_url: https://tralencar.github.io/telco_retention_ai/
+theme:
+  name: material
+  palette:
+    primary: orange
+    scheme: slate
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - toc.integrate
+  language: pt
+
+nav:
+  - 🏠 Home: index.md
+  - ⚙️ Installation: installation.md
+  - 🚀 Project Usage: usage.md
+  - 📂 Project Structure: project_structure.md
+  - 📦 Methodology (CRISP-DM):
+      - 🧠 Business Understanding: 01_business_understanding.md
+      - 📊 Data Understanding: 02_data_understanding.md
+      - 🛠️ Data Preparation: 03_data_preparation.md
+      - 🤖 Modeling: 04_modeling.md
+      - 📏 Evaluation: 05_evaluation.md
+  - 📦 Results:
+      - 🎯 Project Objectives Results: 06_project_objectives.md
+      - 📌 Project Goals Results: 07_project_goals.md
+      - 💡 Business Recommendations: 08_business_recommendations.md
+      - ✅ Project Conclusions: 09_conclusions.md
+  - 🤝 Contributing: contributing.md
