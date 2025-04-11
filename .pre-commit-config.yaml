@@ -23,14 +23,38 @@ repos:
   # -------------------------------
   # Hooks para Notebooks Jupyter com nbQA
   # -------------------------------
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.7.0  # ou a versão mais recente
-    hooks:
-      - id: nbqa-ruff
-        args: [--line-length=100]
-        files: ^notebook/.*\.ipynb$
-        types: [jupyter]
-      - id: nbqa-black
-        args: [--line-length=100]
-        files: ^notebook/.*\.ipynb$
-        types: [jupyter]
+  # - repo: https://github.com/nbQA-dev/nbQA
+  #   rev: 1.7.0
+  #   hooks:
+  #     - id: nbqa-ruff
+  #       args: [--line-length=100]
+  #       files: ^notebook/.*\.ipynb$
+  #       types: [jupyter]
+  #     - id: nbqa-black
+  #       args: [--line-length=100]
+  #       files: ^notebook/.*\.ipynb$
+  #       types: [jupyter]
+
+  # - repo: https://github.com/nbQA-dev/nbQA
+  #   rev: 1.9.1
+  #   hooks:
+  #     - id: nbqa-ruff
+  #       args: ["--nbqa-mutate", "--config", "pyproject.toml"]
+  #       entry: nbqa
+  #       language_version: python3
+  #       types: [notebook]
+  #       additional_dependencies: [ruff]
+  #       pass_filenames: false
+
+  # - repo: https://github.com/nbQA-dev/nbQA
+  #   rev: 1.9.1
+  #   hooks:
+  #     - id: nbqa-ruff
+  #       args: ["--nbqa-mutate"]
+  #       additional_dependencies: ["ruff"]
+
+  # - repo: https://github.com/nbQA-dev/nbQA
+  #   rev: 1.9.1
+  #   hooks:
+  #     - id: nbqa-ruff
+  #       additional_dependencies: ["ruff"]
