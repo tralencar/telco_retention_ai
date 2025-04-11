@@ -17,6 +17,45 @@ The complete project documentation was made with mkDocs and is available on the 
 
 ---
 
+## 🔹 Visual identity of the TelcoRetentionAI logo
+
+> The *TelcoRetentionAI* logo is not just an aesthetic icon. It is a strategic communication piece that **visually synthesizes the pillars of the project: sector (Telco), purpose (Retention), and differentiation (AI)**.
+> As a brand, it conveys **trust, innovation, and business-driven outcomes**, reinforcing the solution’s position as an intelligent and scalable platform for **churn reduction in the telecommunications industry**.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tralencar/telco_retention_ai/main/docs/assets/images/telco_retention_ai_logo.png" alt="TelcoRetentionAI Logo" width="300"/>
+</p>
+
+<h1 align="center">TelcoRetentionAI</h1>
+<p align="center"><em>AI-powered churn prediction for the telecom industry</em></p>
+
+### 1. Clarity and Immediate Association with the Telco Sector
+The stylized **"T" in blue** is a direct and recognizable symbol of the **telecommunications** sector. Using this letter as the central shape reinforces the association with telco companies without needing further explanation.
+
+- **Blue color**: Reinforces values such as **trust, stability, technology, and innovation** — key attributes for the telco audience.
+
+### 2. Circular Elements: Metaphor for Retention and Lifecycle
+The **circular or looping shapes** surrounding or interacting with the “T” suggest ideas of **customer retention**, **loyalty**, and the **Customer Lifecycle**.
+
+- These elements create a **subconscious visual narrative**: the customer remains within the company’s value cycle.
+- They also suggest **continuous movement**, indicating ongoing analysis and proactivity — key pillars of predictive AI systems.
+
+### 3. AI Elements: Modernity and Sophistication
+Subtle lines, circuit patterns, or geometric dots symbolize **machine learning, algorithms, and neural networks**.
+
+- Visually communicates that the solution is **tech-based and powered by AI**, adding sophistication and differentiation from traditional BI or CRM tools.
+
+### 4. Integrated Branding Strategy
+The visual identity of *TelcoRetentionAI* is designed to **translate the project’s business goals into graphic elements**:
+
+- **Cutting-edge technology** (AI)
+- **Customer focus and long-term value** (retention & CLTV)
+- **Practical application in telecommunications** (Telco)
+
+This direct connection between **visual brand** and **value proposition** improves **communication with stakeholders, investors, and users**, while enhancing **brand recall**.
+
+---
+
 ## 🧠 Project Goals
 
 ### 🎯 Primary Goal
