@@ -1,6 +1,6 @@
 # 📡 TelcoRetentionAI
 
-The complete project documentation was made with mkDocs and is available on the following official [TelcoRetention AI](https://tralencar.github.io/telco_retention_ai/).
+The complete project documentation was made with mkDocs and is available on the following official website [TelcoRetention AI](https://tralencar.github.io/telco_retention_ai/).
 
 **TelcoRetentionAI** is a machine learning project that predicts customer churn for a fictional telecom company using advanced analytics, model optimization, and explainability techniques. It provides interpretable predictions and business insights to help companies reduce churn and prioritize customer retention strategies.
 
@@ -72,7 +72,7 @@ Generate business insights and dashboards to highlight:
 
 ---
 
-## 🏗️ Project eatures
+## 🏗️ Project features
 
 ✅ Programming Language: `Python`<br>
 ✅ Hyperparameter optimization with `Optuna`<br>
