@@ -36,26 +36,28 @@ Generate business insights and dashboards to highlight:
 
 ## 🏗️ Project eatures
 
-✅ Programming Language: `Python`
-✅ Hyperparameter optimization with `Optuna`
-✅ Class balancing with `SMOTE` (`imblearn`)
-✅ Evaluation using `scikit-learn` metrics
-✅ Support for `Gradient Boosting`, `Random Forest`, and `Logistic Regression` models
-✅ Code quality ensured by `Pre-commit`, `Ruff`, `Black`, `Flake8`, `Isort`, `Interrogate`
-✅ Task automation with `Makefile`
-✅ Semantic versioning using `bump2version`
-✅ Automated testing with `Pytest` + `Pytest-Cov`
-✅ Notebook linting and quality enforcement using `nbQA`
-✅ Auto-generated documentation with `MkDocs`, `MkDocs Material`, and `mkdocstrings-python`
-✅ Automatic formatting and linting with `Ruff`, `Black`, and `Isort`
-✅ Enhanced documentation design with `mkdocs-bootstrap386` and `pymdown-extensions`
-✅ Git hooks for code validation using `Pre-commit`
-✅ Modular and reusable structure managed with `Poetry`
-✅ **Continuous Integration (CI)** with `GitHub Actions`, including:
-🔹 Code quality checks on every `push` or `pull request` to `main`
-🔹 Automated setup of the `Python` environment with `Poetry`
-🔹 Automatic installation of development dependencies
+✅ Programming Language: `Python`<br>
+✅ Hyperparameter optimization with `Optuna`<br>
+✅ Class balancing with `SMOTE` (`imblearn`)<br>
+✅ Evaluation using `scikit-learn` metrics<br>
+✅ Support for `Gradient Boosting`, `Random Forest`, and `Logistic Regression` models<br>
+✅ Code quality ensured by `Pre-commit`, `Ruff`, `Black`, `Flake8`, `Isort`, `Interrogate`<br>
+✅ Task automation with `Makefile`<br>
+✅ Semantic versioning using `bump2version`<br>
+✅ Automated testing with `Pytest` + `Pytest-Cov`<br>
+✅ Notebook linting and quality enforcement using `nbQA`<br>
+✅ Auto-generated documentation with `MkDocs`, `MkDocs Material`, and `mkdocstrings-python`<br>
+✅ Automatic formatting and linting with `Ruff`, `Black`, and `Isort`<br>
+✅ Enhanced documentation design with `mkdocs-bootstrap386` and `pymdown-extensions`<br>
+✅ Git hooks for code validation using `Pre-commit`<br>
+✅ Modular and reusable structure managed with `Poetry`<br>
+✅ **Continuous Integration (CI)** with `GitHub Actions`, including:<br>
+🔹 Code quality checks on every `push` or `pull request` to `main`<br>
+🔹 Automated setup of the `Python` environment with `Poetry`<br>
+🔹 Automatic installation of development dependencies<br>
 🔹 Execution of the `make quality` rule to enforce coding standards
+
+---
 
 ## 🧪 Development Tools
 
@@ -155,3 +157,5 @@ This project follows the CRISP-DM methodology, structured in the following stage
 ## 🔹 🔗 Acknowledgements
 
 * Dataset: IBM Telco Customer Churn (Kaggle)
+
+---
