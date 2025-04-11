@@ -1,0 +1,36 @@
+repos:
+  # --------------------------
+  # Hooks Básicos de Qualidade de Código
+  # --------------------------
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-toml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  # --------------------------
+  # Hooks para Análise de Código com Ruff
+  # --------------------------
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.5
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix, --show-fixes]
+      - id: ruff-format
+
+  # -------------------------------
+  # Hooks para Notebooks Jupyter com nbQA
+  # -------------------------------
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.7.0  # ou a versão mais recente
+    hooks:
+      - id: nbqa-ruff
+        args: [--line-length=100]
+        files: ^notebook/.*\.ipynb$
+        types: [jupyter]
+      - id: nbqa-black
+        args: [--line-length=100]
+        files: ^notebook/.*\.ipynb$
+        types: [jupyter]
