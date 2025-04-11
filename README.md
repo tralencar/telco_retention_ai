@@ -26,7 +26,6 @@ The complete project documentation was made with mkDocs and is available on the 
   <img src="https://raw.githubusercontent.com/tralencar/telco_retention_ai/main/docs/assets/images/telco_retention_ai_logo.png" alt="TelcoRetentionAI Logo" width="300"/>
 </p>
 
-<h1 align="center">TelcoRetentionAI</h1>
 <p align="center"><em>AI-powered churn prediction for the telecom industry</em></p>
 
 ### 1. Clarity and Immediate Association with the Telco Sector
@@ -113,6 +112,11 @@ Generate business insights and dashboards to highlight:
 
 ## 🔹 Documentation Structure (CRISP-DM aligned)
 
+- **[Home](https://tralencar.github.io/telco_retention_ai/)**: Project overview
+- **[Installation](https://tralencar.github.io/telco_retention_ai/installation/)**: Steps for installing project tools.
+- **[Usage Guide](https://tralencar.github.io/telco_retention_ai/usage/)**: Instructions on how to run the project.
+- **[Project Structure](https://tralencar.github.io/telco_retention_ai/project_structure/)**: Describes the organization of files, directories, and logical structure used in the repository.
+- **[Contributing Guidelines](https://tralencar.github.io/telco_retention_ai/contributing/)**: Guidelines for open-source contributions and collaboration rules.
 - **[Business Understanding](https://tralencar.github.io/telco_retention_ai/01_business_understanding/)**: Defines the business goals, context and success criteria for churn reduction in a telco company.
 - **[Data Understanding](https://tralencar.github.io/telco_retention_ai/02_data_understanding/)**: Explores and visualizes the dataset to understand key variables, distributions, and correlations with churn.
 - **[Data Preparation](https://tralencar.github.io/telco_retention_ai/03_data_preparation/)**: Covers data cleaning, feature engineering, encoding, scaling, and handling class imbalance using SMOTE.
@@ -122,9 +126,6 @@ Generate business insights and dashboards to highlight:
 - **[Project Goals Result](https://tralencar.github.io/telco_retention_ai/07_project_goals/)**: Maps the execution results to strategic and tactical business goals for stakeholder alignment.
 - **[Business Recommendations](https://tralencar.github.io/telco_retention_ai/08_business_recommendations/)**: Provides actionable insights and next steps to reduce churn based on data-driven results.
 - **[Project Conclusion](https://tralencar.github.io/telco_retention_ai/09_conclusions/)**: Summarizes the impact, outcomes, and limitations of the TelcoRetentionAI solution.
-- **[Usage Guide](https://tralencar.github.io/telco_retention_ai/usage/)**: Instructions on how to run the project.
-- **[Project Structure](https://tralencar.github.io/telco_retention_ai/project_structure/)**: Describes the organization of files, directories, and logical structure used in the repository.
-- **[Contributing Guidelines](https://tralencar.github.io/telco_retention_ai/contributing/)**: Guidelines for open-source contributions and collaboration rules.
 
 ---
 
