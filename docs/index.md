@@ -100,6 +100,8 @@ This direct connection between **visual brand** and **value proposition** improv
 
 - **[09 - Project Conclusion](09_conclusions.md)**: Summarizes the impact, outcomes, and limitations of the TelcoRetentionAI solution.
 
+- **[Installation](installation.md)**: Steps for installing project tools.
+
 - **[Usage Guide](usage.md)**: Instructions on how to run the project.
 
 - **[Project Structure](project_structure.md)**: Describes the organization of files, directories, and logical structure used in the repository.
