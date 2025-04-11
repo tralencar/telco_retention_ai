@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "telco-customer-churn"
+version = "0.1.0"
+description = "TelcoRetentionAI for Telco Customer Churn"
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.3"
+jupyter = "^1.1.1"
+seaborn = "^0.13.2"
+matplotlib = "^3.10.1"
+imblearn = "^0.0"
+scikit-plot = "^0.3.7"
+lime = "^0.2.0.1"
+shap = "^0.47.1"
+mkdocs = "^1.6.1"
+mkdocstrings-python = "^1.16.10"
+mkdocs-material = "^9.6.11"
+pymdown-extensions = "^10.14.3"
+mkdocs-bootstrap386 = "^0.0.2"
+pre-commit = "^4.2.0"
+ruff = "^0.11.5"
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.2.0"
+interrogate = "^1.7.0"
+bump2version = "^1.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest-cov = "^6.1.1"
+nbqa = "^1.9.1"
+black = "^25.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+#REF: https://pre-commit.com/
+#REF: https://stefaniemolin.com/articles/devx/pre-commit/setup-guide/
+#REF: https://medium.com/@pijpijani/smarter-commits-with-git-pre-commit-hooks-9c7bb3f699bf
+#REF: https://github.com/astral-sh/ruff/blob/2e9e96338e89712aefd1cf11918f7d2fca3a8e2d/README.md?plain=1#L294
+[tool.ruff]
+line-length = 88
+select = [
+    "C",  # mccabe rules
+    "F",  # pyflakes rules
+    "E",  # pycodestyle error rules
+    "W",  # pycodestyle warning rules
+    "B",  # flake8-bugbear rules
+    "I",  # isort rules
+]
+ignore = [
+    "C901",  # max-complexity-10
+    "E501",  # line-too-long
+]
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "single"
