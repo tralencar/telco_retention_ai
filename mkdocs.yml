@@ -13,7 +13,7 @@ site_url: https://tralencar.github.io/telco_retention_ai/
 theme:
   name: material
   palette:
-    primary: orange
+    primary: indigo
     scheme: slate
   features:
     - navigation.instant
