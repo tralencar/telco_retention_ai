@@ -17,7 +17,9 @@
 > The *TelcoRetentionAI* logo is not just an aesthetic icon. It is a strategic communication piece that **visually synthesizes the pillars of the project: sector (Telco), purpose (Retention), and differentiation (AI)**.
 > As a brand, it conveys **trust, innovation, and business-driven outcomes**, reinforcing the solution’s position as an intelligent and scalable platform for **churn reduction in the telecommunications industry**.
 
-![TelcoRetentionAI logo](assets/images/telco_retention_ai_logo.png)
+<p align="center">
+  <img src="assets/images/telco_retention_ai_logo.png" alt="TelcoRetentionAI Logo" width="300"/>
+</p>
 
 ### 1. Clarity and Immediate Association with the Telco Sector
 The stylized **"T" in blue** is a direct and recognizable symbol of the **telecommunications** sector. Using this letter as the central shape reinforces the association with telco companies without needing further explanation.
