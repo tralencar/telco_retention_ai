@@ -18,7 +18,7 @@ lime = "^0.2.0.1"
 shap = "^0.47.1"
 mkdocs = "^1.6.1"
 mkdocstrings-python = "^1.16.10"
-mkdocs-material = "^9.6.11"
+mkdocs-material = {extras = ["recommended"], version = "^9.6.11"}
 pymdown-extensions = "^10.14.3"
 mkdocs-bootstrap386 = "^0.0.2"
 pre-commit = "^4.2.0"
@@ -28,6 +28,8 @@ isort = "^6.0.1"
 flake8 = "^7.2.0"
 interrogate = "^1.7.0"
 bump2version = "^1.0.1"
+cairosvg = "^2.7.1"
+pillow = "^11.1.0"
 
 
 [tool.poetry.group.dev.dependencies]
