@@ -20,7 +20,7 @@ theme:
     - navigation.tracking
     - navigation.sections
     - toc.integrate
-  language: pt
+  language: en
 
 nav:
   - 🏠 Home: index.md
